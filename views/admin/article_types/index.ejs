@@ -1,45 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>文章分类列表</title>
-  </head>
-  <body>
-    <a href="/admin001/a_t/new">新增</a>
-    <table>
-      <tr>
-        <th>序号</th>
-        <th>名字</th>
-        <th>描述</th>
-        <th>操作</th>
-      </tr>
-      <!-- 此处应该写循环 -->
-      <% arrAT.forEach((item, index) => { %>
-      <tr>
-        <td><%= index + 1 %></td>
-        <td><%= item.name %></td>
-        <td><%= item.descriptions %></td>
-        <td>
-          <a href="/admin001/a_t/edit?id=<%= item.id %>">修改</a>
-          <a href="#" onclick="delOne(<%= item.id %>)">删除</a>
-        </td>
-      </tr>
-      <%}) %>
-    </table>
 
-    <div style="display: none">
-      <form id="delForm" method="POST"></form>
+    <title>- 基础表格</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet" />
+    <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet" />
+    <link href="/css/plugins/iCheck/custom.css" rel="stylesheet" />
+    <link href="/css/animate.css" rel="stylesheet" />
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet" />
+  </head>
+
+  <body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="ibox float-e-margins">
+            <div class="ibox-content">
+              <a href="/admin001/a_t/new" class="btn btn-primary">新增</a>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>序号</th>
+                    <th>名字</th>
+                    <th>描述</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% arrAT.forEach((item, index) => { %>
+                  <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= item.name %></td>
+                    <td><%= item.descriptions %></td>
+                    <td>
+                      <a href="/admin001/a_t/edit?id=<%= item.id %>">修改</a>
+                      <a href="#" onclick="delOne(<%= item.id %>)">删除</a>
+                    </td>
+                  </tr>
+                  <%}) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <script>
-      function delOne(id) {
-        if (confirm('确认删除')) {
-          var form = document.getElementById('delForm');
-          form.action = '/admin001/a_t/del/' + id;
-          form.submit(); // 触发表单提交
-        }
-      }
-    </script>
   </body>
 </html>
