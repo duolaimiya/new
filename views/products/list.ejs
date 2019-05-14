@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <%- include('../tpl/header') %>
+    <title>商品列表页</title>
+  </head>
+  <body>
+    <ul>
+      <% for(var i = 0;i<20;i++) { %>
+      <li>我是第<%= i+ 1 %>个li</li>
+      <%} %>
+    </ul>
+    <%- include('../tpl/footer') %>
+  </body>
+</html>

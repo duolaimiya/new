@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <%- include('tpl/header') %>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <h3><%= descriptions %></h3>
+    <p>Welcome to <%= title %></p>
+    <a href="/users">用户页面</a>
+    <%= c %>
+    <hr />
+    <%- c %>
+    <ul>
+      <% people.forEach(item=>{ %>
+      <li><%= item.name %></li>
+      <%}) %>
+    </ul>
+    <%- include('tpl/footer') %>
+  </body>
+</html>
