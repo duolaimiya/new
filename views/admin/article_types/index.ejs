@@ -8,7 +8,7 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
 
-    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="/shortcut icon" href="favicon.ico" />
     <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet" />
     <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet" />
     <link href="/css/plugins/iCheck/custom.css" rel="stylesheet" />
@@ -46,6 +46,18 @@
                   <%}) %>
                 </tbody>
               </table>
+              <div style="display:none;">
+                <form id="delForm" method="POST"></form>
+              </div>
+
+              <script>
+                function delOne(id) {
+                  console.log();
+                  var form = document.getElementById("delForm");
+                  form.action = "/admin001/a_t/del/" + id;
+                  form.submit();
+                }
+              </script>
             </div>
           </div>
         </div>
